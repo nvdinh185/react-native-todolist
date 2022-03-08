@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        // backgroundColor: "red"
     },
     input: {
         height: 44,
@@ -25,14 +26,14 @@ const styles = StyleSheet.create({
         width: 44,
         height: 44,
         backgroundColor: color.primary,
-        borderRadius: 44,
+        borderRadius: 22,
+        borderWidth: 1,
+        borderColor: color.background,
         alignItems: 'center',
         justifyContent: 'center',
-        borderWidth: 1,
-        borderColor: color.background
     },
     icon: {
-        fontSize: 30,
+        fontSize: 40,
         color: color.white
     }
 })
