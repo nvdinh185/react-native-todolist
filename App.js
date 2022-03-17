@@ -11,25 +11,24 @@ export default function App() {
   const handleAddTask = (task) => {
     // add task
     setTaskList([...taskList, task]);
-
   }
 
   const handleDeleteTask = (index) => {
     Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
+      "Thông báo !!!",
+      "Bạn có chắc chắn muốn xóa?",
       [
         {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
+          text: "OK",
+          onPress: () => {
+            let taskListTmp = [...taskList];
+            taskListTmp.splice(index, 1);
+            setTaskList(taskListTmp);
+          },
         },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
+        { text: "Cancel", onPress: () => { } }
       ]
     );
-    let taskListTmp = [...taskList];
-    taskListTmp.splice(index, 1);
-    setTaskList(taskListTmp);
   }
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Keyboard, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 
 import styles from './style';
 
@@ -14,10 +14,15 @@ const Form = (props) => {
         }
         props.onAddTask(task);
         setTask('');
+        Keyboard.dismiss();
     };
 
     return (
-        <View style={styles.addTask}>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            keyboardVerticalOffset={10}
+            style={styles.addTask}
+        >
             <TextInput
                 value={task}
                 placeholder='Your task'
@@ -29,7 +34,7 @@ const Form = (props) => {
                     <Text style={styles.icon}>+</Text>
                 </View>
             </TouchableOpacity>
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
